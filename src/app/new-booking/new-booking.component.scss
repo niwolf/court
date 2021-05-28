@@ -1,0 +1,14 @@
+mat-card {
+  width: 300px;
+  margin: 20px auto;
+
+  mat-card-header{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+}

@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule,
+    RouterModule
   ],
   exports: [NavigationComponent],
 })
