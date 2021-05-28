@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'navigation',
+    redirectTo: 'dashboard',
   },
   {
-    path: 'navigation',
+    path: 'dashboard',
     loadChildren: () =>
-      import('./navigation/navigation.module').then((m) => m.NavigationModule),
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: 'new-booking',
@@ -22,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
