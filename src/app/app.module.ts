@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -8,6 +8,10 @@ import { NewBookingModule } from './new-booking/new-booking.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +29,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
