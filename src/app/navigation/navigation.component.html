@@ -20,9 +20,10 @@
       </button>
       <span>TC-Wennemen</span>
     </mat-toolbar>
-    <a class="addButton" color="primary" mat-fab routerLink="/new-booking">
-      <mat-icon>add</mat-icon>
-    </a>
-    <!-- Add Content Here -->
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
