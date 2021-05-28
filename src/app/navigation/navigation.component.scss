@@ -10,7 +10,9 @@
   background: inherit;
 }
 
-.mat-toolbar.mat-primary {
+.mat-toolbar {
+  background-color: #DF0203;
+  color: white;
   position: sticky;
   top: 0;
   z-index: 1;
