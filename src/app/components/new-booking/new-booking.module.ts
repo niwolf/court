@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NewBookingComponent],
@@ -19,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
 })
 export class NewBookingModule {}

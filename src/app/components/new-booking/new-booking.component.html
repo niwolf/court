@@ -1,12 +1,19 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Neue Platz-Buchung</mat-card-title>
+    <mat-card-title>Neue Platz Buchung</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Wann?" required />
+      <input matInput [matDatepicker]="picker" placeholder="Welches Datum?" required />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Welche Uhrzeit?" type="time">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Dauer" type="number">
+      <span matSuffix>h</span>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Auf welchem Platz?</mat-label>
