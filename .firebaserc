@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "court-390a2": {
+      "hosting": {
+        "court": [
+          "court-390a2"
+        ]
+      }
+    }
+  }
+}
