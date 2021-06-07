@@ -39,4 +39,13 @@
     </mat-form-field>
   </mat-card-content>
 </mat-card>
-<button mat-raised-button (click)="this._snackBar.open('Hier passiert noch nichts! :)');">Buchen</button>
+<button
+  mat-raised-button
+  (click)="
+    this._snackBar.open('Hier passiert noch nichts! :)', 'Ok', {
+      duration: 4000
+    })
+  "
+>
+  Buchen
+</button>
