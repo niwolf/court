@@ -4,23 +4,37 @@
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Welches Datum?" required />
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Welches Datum?"
+        required
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Welche Uhrzeit?" type="time">
+      <input matInput placeholder="Welche Uhrzeit?" type="time" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Dauer" type="number">
+      <input matInput placeholder="Dauer" min="0" type="number" />
       <span matSuffix>h</span>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Auf welchem Platz?</mat-label>
       <mat-select>
-        <mat-option value="1">Platz 1</mat-option>
-        <mat-option value="2">Platz 2</mat-option>
-        <mat-option value="3">Platz 3</mat-option>
+        <mat-option value="1">
+          Platz 1
+          <mat-icon [style.color]="'green'">lens</mat-icon>
+        </mat-option>
+        <mat-option value="2">
+          Platz 2
+          <mat-icon [style.color]="'green'">lens</mat-icon>
+        </mat-option>
+        <mat-option value="3" disabled>
+          Platz 3
+          <mat-icon color="warn">lens</mat-icon>
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card-content>
