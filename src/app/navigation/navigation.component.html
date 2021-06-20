@@ -1,28 +1,57 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
+<mat-toolbar>
+  <span>TC-Wennemen</span>
+</mat-toolbar>
+
+<ng-container *ngIf="!(isMobile$ | async)">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav class="sidenav" [attr.role]="'navigation'" mode="side" opened>
+      <ng-template [ngTemplateOutlet]="links"></ng-template>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-template [ngTemplateOutlet]="content"></ng-template>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+<ng-container *ngIf="isMobile$ | async">
+  <ng-template [ngTemplateOutlet]="content"></ng-template>
+  <mat-toolbar color="primary" class="bottom-nav">
+    <ng-template [ngTemplateOutlet]="links"></ng-template>
+  </mat-toolbar>
+</ng-container>
+
+<ng-template #links>
+  <a
+    routerLink="/dashboard"
+    routerLinkActive="active"
+    #rlaDashboard="routerLinkActive"
+    mat-button
+    class="nav-item"
   >
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="/dashboard">Dashboard</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>TC-Wennemen</span>
-    </mat-toolbar>
-    <ng-template [ngTemplateOutlet]="content"></ng-template>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-icon>
+      <!--      [fontSet]="-->
+      <!--        rlaDashboard.isActive ? 'material-icons' : 'material-icons-outlined'-->
+      <!--      "-->
+      dashboard</mat-icon
+    >
+    <div>Dashboard</div>
+  </a>
+  <a
+    routerLink="/new-booking"
+    routerLinkActive="active"
+    #rlaNewBooking="routerLinkActive"
+    mat-button
+    class="nav-item"
+  >
+    <mat-icon>
+      <!--      [fontSet]="-->
+      <!--        rlaNewBooking.isActive ? 'material-icons' : 'material-icons-outlined'-->
+      <!--      "-->
+      add_circle</mat-icon
+    >
+    <div>Neue Buchung</div>
+  </a>
+</ng-template>
 
 <ng-template #content>
   <ng-content></ng-content>

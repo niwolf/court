@@ -16,5 +16,12 @@ export class NavigationComponent {
       shareReplay()
     );
 
+  isMobile$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.XSmall)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 }

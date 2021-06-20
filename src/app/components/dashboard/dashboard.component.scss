@@ -2,5 +2,29 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #DF0203;
+  background-color: #df0203;
+  z-index: 1000;
+
+  &.mobile {
+    bottom: 76px;
+  }
+}
+
+.list {
+  width: 100%;
+}
+
+mat-card {
+  width: 300px;
+  margin: 20px auto;
+
+  mat-card-header {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
 }
