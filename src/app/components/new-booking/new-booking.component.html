@@ -23,6 +23,7 @@
     <mat-form-field>
       <mat-label>Auf welchem Platz?</mat-label>
       <mat-select #select>
+        <mat-select-trigger>{{ select.value }}</mat-select-trigger>
         <mat-option
           value="1"
           [disabled]="this.belegungsService.court1Belegt === 'red'"
