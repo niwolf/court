@@ -7,7 +7,12 @@
     <div class="list">
       <mat-list role="list">
         <mat-list-item role="listitem">
-          <div mat-line>Platz 1: Belegt</div>
+          <div mat-line>
+            Platz 1:
+            {{
+              this.belegungsService.court1Belegt === "red" ? "belegt" : "frei"
+            }}
+          </div>
           <mat-icon
             mat-list-icon
             [style.color]="this.belegungsService.court1Belegt"
@@ -16,7 +21,12 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-          <div mat-line>Platz 2: Frei</div>
+          <div mat-line>
+            Platz 2:
+            {{
+              this.belegungsService.court2Belegt === "red" ? "belegt" : "frei"
+            }}
+          </div>
           <mat-icon
             mat-list-icon
             [style.color]="this.belegungsService.court2Belegt"
@@ -25,7 +35,12 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-          <div mat-line>Platz 3: Frei</div>
+          <div mat-line>
+            Platz 3:
+            {{
+              this.belegungsService.court3Belegt === "red" ? "belegt" : "frei"
+            }}
+          </div>
           <mat-icon
             mat-list-icon
             [style.color]="this.belegungsService.court3Belegt"
