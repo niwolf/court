@@ -17,12 +17,20 @@
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
           <div mat-line>Platz 2: Frei</div>
-          <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
+          <mat-icon
+            mat-list-icon
+            [style.color]="this.belegungsService.court2Belegt"
+            >lens</mat-icon
+          >
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
           <div mat-line>Platz 3: Frei</div>
-          <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
+          <mat-icon
+            mat-list-icon
+            [style.color]="this.belegungsService.court3Belegt"
+            >lens</mat-icon
+          >
         </mat-list-item>
       </mat-list>
     </div>
@@ -33,7 +41,19 @@
   Platz 1 freigeben
 </button>
 <button mat-flat-button (click)="this.belegungsService.toggleCourt1(2)">
-  Platz 1 belegen
+  Platz 1 belegen</button
+><br />
+<button mat-flat-button (click)="this.belegungsService.toggleCourt2(1)">
+  Platz 2 freigeben
+</button>
+<button mat-flat-button (click)="this.belegungsService.toggleCourt2(2)">
+  Platz 2 belegen</button
+><br />
+<button mat-flat-button (click)="this.belegungsService.toggleCourt3(1)">
+  Platz 3 freigeben
+</button>
+<button mat-flat-button (click)="this.belegungsService.toggleCourt3(2)">
+  Platz 3 belegen
 </button>
 
 <a

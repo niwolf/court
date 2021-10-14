@@ -22,31 +22,29 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Auf welchem Platz?</mat-label>
-      <mat-select>
+      <mat-select #select>
         <mat-option value="1">
           Platz 1
-          <mat-icon [style.color]="'green'">lens</mat-icon>
+          <mat-icon [style.color]="this.belegungsService.court1Belegt"
+            >lens</mat-icon
+          >
         </mat-option>
         <mat-option value="2">
           Platz 2
-          <mat-icon [style.color]="'green'">lens</mat-icon>
+          <mat-icon [style.color]="this.belegungsService.court2Belegt"
+            >lens</mat-icon
+          >
         </mat-option>
         <mat-option value="3" disabled>
           Platz 3
-          <mat-icon color="warn">lens</mat-icon>
+          <mat-icon [style.color]="this.belegungsService.court3Belegt"
+            >lens</mat-icon
+          >
         </mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card-content>
 </mat-card>
-<button
-  mat-raised-button
-  (click)="
-    this.belegungsService.toggleCourt1(2);
-    this._snackBar.open('Platz 1 wurde soeben gebucht!', 'Ok', {
-      duration: 4000
-    })
-  "
->
+<button mat-raised-button (click)="this.newBooking(select.value)">
   Buchen
 </button>

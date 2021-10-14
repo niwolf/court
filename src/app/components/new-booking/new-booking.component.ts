@@ -12,4 +12,11 @@ export class NewBookingComponent {
     public _snackBar: MatSnackBar,
     public belegungsService: PlatzBelegungService
   ) {}
+
+  newBooking(court: string) {
+    this.belegungsService.toggleHandling(court);
+    this._snackBar.open('Platz ' + court + ' wurde soeben gebucht!', 'Ok', {
+      duration: 3000,
+    });
+  }
 }
