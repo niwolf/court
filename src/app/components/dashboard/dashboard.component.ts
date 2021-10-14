@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
+import { PlatzBelegungService } from '../../services/platz-belegung.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,5 +17,8 @@ export class DashboardComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    public belegungsService: PlatzBelegungService,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 }

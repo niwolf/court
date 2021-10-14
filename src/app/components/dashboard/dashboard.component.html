@@ -1,30 +1,46 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Aktuelle Platzbelegung</mat-card-title>
-        <mat-card-subtitle>Es sind Plätze frei!</mat-card-subtitle>
+    <mat-card-subtitle>Es sind Plätze frei!</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <div class="list">
-    <mat-list role="list">
-      <mat-list-item role="listitem">
-        <div mat-line>Platz 1: Belegt </div>
-        <mat-icon mat-list-icon color="warn">lens</mat-icon>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item role="listitem">
-        <div mat-line>Platz 2: Frei </div>
-        <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item role="listitem">
-        <div mat-line>Platz 3: Frei </div>
-        <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
-      </mat-list-item>
-    </mat-list>
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          <div mat-line>Platz 1: Belegt</div>
+          <mat-icon
+            mat-list-icon
+            [style.color]="this.belegungsService.court1Belegt"
+            >lens</mat-icon
+          >
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <div mat-line>Platz 2: Frei</div>
+          <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <div mat-line>Platz 3: Frei</div>
+          <mat-icon mat-list-icon [style.color]="'green'">lens</mat-icon>
+        </mat-list-item>
+      </mat-list>
     </div>
   </mat-card-content>
 </mat-card>
 
-<a class="addButton" [class.mobile]="isMobile$ | async" mat-fab routerLink="/new-booking">
+<button mat-flat-button (click)="this.belegungsService.toggleCourt1(1)">
+  Platz 1 freigeben
+</button>
+<button mat-flat-button (click)="this.belegungsService.toggleCourt1(2)">
+  Platz 1 belegen
+</button>
+
+<a
+  class="addButton"
+  [class.mobile]="isMobile$ | async"
+  mat-fab
+  routerLink="/new-booking"
+>
   <mat-icon>add</mat-icon>
 </a>

@@ -42,7 +42,8 @@
 <button
   mat-raised-button
   (click)="
-    this._snackBar.open('Hier passiert noch nichts! :)', 'Ok', {
+    this.belegungsService.toggleCourt1(2);
+    this._snackBar.open('Platz 1 wurde soeben gebucht!', 'Ok', {
       duration: 4000
     })
   "
