@@ -23,19 +23,28 @@
     <mat-form-field>
       <mat-label>Auf welchem Platz?</mat-label>
       <mat-select #select>
-        <mat-option value="1">
+        <mat-option
+          value="1"
+          [disabled]="this.belegungsService.court1Belegt === 'red'"
+        >
           Platz 1
           <mat-icon [style.color]="this.belegungsService.court1Belegt"
             >lens</mat-icon
           >
         </mat-option>
-        <mat-option value="2">
+        <mat-option
+          value="2"
+          [disabled]="this.belegungsService.court2Belegt === 'red'"
+        >
           Platz 2
           <mat-icon [style.color]="this.belegungsService.court2Belegt"
             >lens</mat-icon
           >
         </mat-option>
-        <mat-option value="3" disabled>
+        <mat-option
+          value="3"
+          [disabled]="this.belegungsService.court3Belegt === 'red'"
+        >
           Platz 3
           <mat-icon [style.color]="this.belegungsService.court3Belegt"
             >lens</mat-icon
