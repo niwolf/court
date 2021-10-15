@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class PlatzBelegungService {
-  public court1Belegt: string = 'green';
-  public court2Belegt: string = 'green';
-  public court3Belegt: string = 'green';
+  public court1Belegt: boolean = false;
+  public court2Belegt: boolean = false;
+  public court3Belegt: boolean = false;
 
   toggleHandling(court: string): any {
     switch (court) {
@@ -23,44 +23,41 @@ export class PlatzBelegungService {
     }
   }
 
-  toggleCourt1(value: number): string {
+  toggleCourt1(value: number): void {
     switch (value) {
       case 1: {
-        return (this.court1Belegt = 'green');
+        this.court1Belegt = false;
+        break;
       }
       case 2: {
-        return (this.court1Belegt = 'red');
-      }
-      default: {
-        return (this.court1Belegt = 'blue');
+        this.court1Belegt = true;
+        break;
       }
     }
   }
 
-  toggleCourt2(value: number): string {
+  toggleCourt2(value: number): void {
     switch (value) {
       case 1: {
-        return (this.court2Belegt = 'green');
+        this.court2Belegt = false;
+        break;
       }
       case 2: {
-        return (this.court2Belegt = 'red');
-      }
-      default: {
-        return (this.court2Belegt = 'blue');
+        this.court2Belegt = true;
+        break;
       }
     }
   }
 
-  toggleCourt3(value: number): string {
+  toggleCourt3(value: number): void {
     switch (value) {
       case 1: {
-        return (this.court3Belegt = 'green');
+        this.court3Belegt = false;
+        break;
       }
       case 2: {
-        return (this.court3Belegt = 'red');
-      }
-      default: {
-        return (this.court3Belegt = 'blue');
+        this.court3Belegt = true;
+        break;
       }
     }
   }
