@@ -58,24 +58,26 @@
   </mat-card-content>
 </mat-card>
 
-<button mat-flat-button (click)="this.belegungsService.toggleCourt1(1)">
-  Platz 1 freigeben
-</button>
-<button mat-flat-button (click)="this.belegungsService.toggleCourt1(2)">
-  Platz 1 belegen</button
-><br />
-<button mat-flat-button (click)="this.belegungsService.toggleCourt2(1)">
-  Platz 2 freigeben
-</button>
-<button mat-flat-button (click)="this.belegungsService.toggleCourt2(2)">
-  Platz 2 belegen</button
-><br />
-<button mat-flat-button (click)="this.belegungsService.toggleCourt3(1)">
-  Platz 3 freigeben
-</button>
-<button mat-flat-button (click)="this.belegungsService.toggleCourt3(2)">
-  Platz 3 belegen
-</button>
+<div class="centered">
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt1(1)">
+    Platz 1 freigeben
+  </button>
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt1(2)">
+    Platz 1 belegen</button
+  ><br />
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt2(1)">
+    Platz 2 freigeben
+  </button>
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt2(2)">
+    Platz 2 belegen</button
+  ><br />
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt3(1)">
+    Platz 3 freigeben
+  </button>
+  <button mat-flat-button (click)="this.belegungsService.toggleCourt3(2)">
+    Platz 3 belegen
+  </button>
+</div>
 
 <a
   class="addButton"
