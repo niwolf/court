@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
-import { PlatzBelegungService } from '../../services/platz-belegung.service';
+import { CourtOccupancyService } from '../../services/court-occupancy.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +18,7 @@ export class DashboardComponent {
     );
 
   constructor(
-    public belegungsService: PlatzBelegungService,
+    public courtOccupancyService: CourtOccupancyService,
     private breakpointObserver: BreakpointObserver
   ) {}
 }

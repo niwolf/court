@@ -10,13 +10,13 @@
           <div mat-line>
             Platz 1:
             {{
-              this.belegungsService.court1Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court1IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.belegungsService.court1Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court1IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
@@ -26,13 +26,13 @@
           <div mat-line>
             Platz 2:
             {{
-              this.belegungsService.court2Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court2IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.belegungsService.court2Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court2IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
@@ -42,13 +42,13 @@
           <div mat-line>
             Platz 3:
             {{
-              this.belegungsService.court3Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court3IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.belegungsService.court3Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court3IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
@@ -59,22 +59,22 @@
 </mat-card>
 
 <div class="centered">
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt1(1)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(1)">
     Platz 1 freigeben
   </button>
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt1(2)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(2)">
     Platz 1 belegen</button
   ><br />
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt2(1)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(1)">
     Platz 2 freigeben
   </button>
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt2(2)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(2)">
     Platz 2 belegen</button
   ><br />
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt3(1)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(1)">
     Platz 3 freigeben
   </button>
-  <button mat-flat-button (click)="this.belegungsService.toggleCourt3(2)">
+  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(2)">
     Platz 3 belegen
   </button>
 </div>
