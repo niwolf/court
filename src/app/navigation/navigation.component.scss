@@ -1,8 +1,8 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 .mat-toolbar {
   display: flex;
-  background-color: #DF0203;
+  background-color: #df0203;
   color: white;
   position: sticky;
   //top: 0;
@@ -20,21 +20,22 @@ span {
 }
 
 :host::ng-deep .sidenav .mat-drawer-inner-container {
-  width: 72px; // has to be "dp" aka "Density-independent pixels"
+  width: 100px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .sidenav {
-  padding-top: 8px;
+  padding: 10px;
 
   .nav-item {
     height: 72px;
-    width: 72px;
     line-height: 16px;
-    padding: 14px 16px 16px;
+    padding: 12px 5px 0 0;
     opacity: 0.6;
 
     div {
-      margin-left: -16px;
+      margin-left: -12px;
       width: 72px;
     }
 
@@ -53,8 +54,8 @@ span {
   justify-content: space-evenly;
 
   .nav-item {
-    min-width: 80px; // has to be "dp" aka "Density-independent pixels"
-    max-width: 168px; // has to be "dp" aka "Density-independent pixels"
+    min-width: 80px;
+    max-width: 168px;
     flex-grow: 1;
     line-height: 16px;
     padding: 8px 12px 12px;
