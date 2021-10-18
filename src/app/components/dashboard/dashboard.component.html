@@ -10,13 +10,13 @@
           <div mat-line>
             Platz 1:
             {{
-              this.courtOccupancyService.court1Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court1IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.courtOccupancyService.court1Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court1IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
@@ -26,13 +26,13 @@
           <div mat-line>
             Platz 2:
             {{
-              this.courtOccupancyService.court2Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court2IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.courtOccupancyService.court2Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court2IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
@@ -42,13 +42,13 @@
           <div mat-line>
             Platz 3:
             {{
-              this.courtOccupancyService.court3Belegt === true ? "belegt" : "frei"
+              this.courtOccupancyService.court3IsOccupied === true ? "belegt" : "frei"
             }}
           </div>
           <mat-icon
             mat-list-icon
             [style.color]="
-              this.courtOccupancyService.court3Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court3IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >

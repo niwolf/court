@@ -26,36 +26,36 @@
         <mat-select-trigger>{{ select.value }}</mat-select-trigger>
         <mat-option
           value="1"
-          [disabled]="this.courtOccupancyService.court1Belegt === true"
+          [disabled]="this.courtOccupancyService.court1IsOccupied === true"
         >
           Platz 1
           <mat-icon
             [style.color]="
-              this.courtOccupancyService.court1Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court1IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
         </mat-option>
         <mat-option
           value="2"
-          [disabled]="this.courtOccupancyService.court2Belegt === true"
+          [disabled]="this.courtOccupancyService.court2IsOccupied === true"
         >
           Platz 2
           <mat-icon
             [style.color]="
-              this.courtOccupancyService.court2Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court2IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
         </mat-option>
         <mat-option
           value="3"
-          [disabled]="this.courtOccupancyService.court3Belegt === true"
+          [disabled]="this.courtOccupancyService.court3IsOccupied === true"
         >
           Platz 3
           <mat-icon
             [style.color]="
-              this.courtOccupancyService.court3Belegt === true ? 'red' : 'green'
+              this.courtOccupancyService.court3IsOccupied === true ? 'red' : 'green'
             "
             >lens</mat-icon
           >
