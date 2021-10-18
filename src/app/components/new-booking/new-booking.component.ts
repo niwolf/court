@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PlatzBelegungService } from '../../services/platz-belegung.service';
+import { CourtOccupancyService } from '../../services/court-occupancy.service';
 
 @Component({
   selector: 'app-new-booking',
@@ -10,11 +10,11 @@ import { PlatzBelegungService } from '../../services/platz-belegung.service';
 export class NewBookingComponent {
   constructor(
     public _snackBar: MatSnackBar,
-    public belegungsService: PlatzBelegungService
+    public courtOccupancyService: CourtOccupancyService
   ) {}
 
   newBooking(court: string) {
-    this.belegungsService.toggleHandling(court);
+    this.courtOccupancyService.toggleHandling(court);
     this._snackBar.open('Platz ' + court + ' wurde soeben gebucht!', 'Ok', {
       duration: 3000,
     });

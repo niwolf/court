@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class PlatzBelegungService {
+export class CourtOccupancyService {
   public court1Belegt: boolean = false;
   public court2Belegt: boolean = false;
   public court3Belegt: boolean = false;
