@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prettier-check": "prettier --check 'src/app/**'",
+    "prettier-write": "prettier --write 'src/app/**'"
   },
   "private": true,
   "dependencies": {
