@@ -112,7 +112,13 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {}
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "court:build:production",
+            "firebaseProject": "court-390a2",
+            "firebaseHostingSite": "court-390a2"
+          }
         }
       }
     }
