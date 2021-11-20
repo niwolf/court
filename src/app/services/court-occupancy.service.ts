@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 import { BehaviorSubject } from 'rxjs';
 
 export interface Court {
@@ -8,7 +11,9 @@ export interface Court {
   occupied: boolean;
 }
 
-export const getObservable = (collection: AngularFirestoreCollection<Court>) => {
+export const getObservable = (
+  collection: AngularFirestoreCollection<Court>
+) => {
   const subject = new BehaviorSubject<Court[]>([]);
   collection.valueChanges({ idField: 'id' }).subscribe((court: Court[]) => {
     subject.next(court);
@@ -18,10 +23,6 @@ export const getObservable = (collection: AngularFirestoreCollection<Court>) => 
 
 @Injectable({ providedIn: 'root' })
 export class CourtOccupancyService {
-  public court1IsOccupied: boolean = false;
-  public court2IsOccupied: boolean = false;
-  public court3IsOccupied: boolean = false;
-
   constructor(private store: AngularFirestore) {}
 
   toggleHandling(court: string, courts: Court): any {
@@ -32,7 +33,6 @@ export class CourtOccupancyService {
           .doc('1')
           .update({ id: courts.id, name: 'Platz 1', occupied: courts.occupied })
           .then();
-        this.court1IsOccupied = true;
         break;
       }
       case '2': {
@@ -41,7 +41,6 @@ export class CourtOccupancyService {
           .doc('2')
           .update({ id: courts.id, name: 'Platz 2', occupied: courts.occupied })
           .then();
-        this.court2IsOccupied = true;
         break;
       }
       case '3': {
@@ -50,7 +49,6 @@ export class CourtOccupancyService {
           .doc('3')
           .update({ id: courts.id, name: 'Platz 3', occupied: courts.occupied })
           .then();
-        this.court3IsOccupied = true;
         break;
       }
     }

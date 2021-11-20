@@ -16,8 +16,8 @@
             [style.color]="court?.occupied === true ? 'red' : 'green'"
             >lens</mat-icon
           >
+          <mat-divider *ngIf="court.name !== 'Platz 3'"></mat-divider>
         </mat-list-item>
-        <mat-divider></mat-divider>
       </mat-list>
     </div>
   </mat-card-content>
