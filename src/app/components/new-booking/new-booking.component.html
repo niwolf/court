@@ -25,44 +25,12 @@
       <mat-select #select>
         <mat-select-trigger>{{ select.value }}</mat-select-trigger>
         <mat-option
-          value="1"
-          [disabled]="this.courtOccupancyService.court1IsOccupied === true"
+          *ngFor="let court of court | async"
+          [value]="court.id"
+          [disabled]="court.occupied"
         >
-          Platz 1
-          <mat-icon
-            [style.color]="
-              this.courtOccupancyService.court1IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
-            >lens</mat-icon
-          >
-        </mat-option>
-        <mat-option
-          value="2"
-          [disabled]="this.courtOccupancyService.court2IsOccupied === true"
-        >
-          Platz 2
-          <mat-icon
-            [style.color]="
-              this.courtOccupancyService.court2IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
-            >lens</mat-icon
-          >
-        </mat-option>
-        <mat-option
-          value="3"
-          [disabled]="this.courtOccupancyService.court3IsOccupied === true"
-        >
-          Platz 3
-          <mat-icon
-            [style.color]="
-              this.courtOccupancyService.court3IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
+          {{ court.name }}
+          <mat-icon [style.color]="court.occupied ? 'red' : 'green'"
             >lens</mat-icon
           >
         </mat-option>

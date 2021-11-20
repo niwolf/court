@@ -1,23 +1,13 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import {
   Court,
   CourtOccupancyService,
+  getObservable,
 } from '../../services/court-occupancy.service';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
-
-const getObservable = (collection: AngularFirestoreCollection<Court>) => {
-  const subject = new BehaviorSubject<Court[]>([]);
-  collection.valueChanges({ idField: 'id' }).subscribe((court: Court[]) => {
-    subject.next(court);
-  });
-  return subject;
-};
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-dashboard',

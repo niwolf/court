@@ -23,26 +23,32 @@
   </mat-card-content>
 </mat-card>
 
-<!--<div class="centered">-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(1)">-->
-<!--    Platz 1 freigeben-->
-<!--  </button>-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(2)">-->
-<!--    Platz 1 belegen</button-->
-<!--  ><br />-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(1)">-->
-<!--    Platz 2 freigeben-->
-<!--  </button>-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(2)">-->
-<!--    Platz 2 belegen</button-->
-<!--  ><br />-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(1)">-->
-<!--    Platz 3 freigeben-->
-<!--  </button>-->
-<!--  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(2)">-->
-<!--    Platz 3 belegen-->
-<!--  </button>-->
-<!--</div>-->
+<div class="centered" *ngFor="let court of court | async">
+  <button
+    mat-flat-button
+    (click)="
+      this.courtOccupancyService.toggleHandling(court.id.toString(), {
+        id: court.id,
+        name: court.name,
+        occupied: false
+      })
+    "
+  >
+    {{ court.name + ' freigeben' }}
+  </button>
+  <button
+    mat-flat-button
+    (click)="
+      this.courtOccupancyService.toggleHandling(court.id.toString(), {
+        id: court.id,
+        name: court.name,
+        occupied: true
+      })
+    "
+  >
+    {{ court.name + ' belegen' }}</button
+  ><br />
+</div>
 
 <a
   class="addButton"
