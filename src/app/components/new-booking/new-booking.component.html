@@ -73,7 +73,13 @@
 <button
   mat-raised-button
   [disabled]="!select.value"
-  (click)="this.newBooking(select.value)"
+  (click)="
+    this.newBooking(select.value, {
+      id: select.value,
+      name: select.triggerValue,
+      occupied: true
+    })
+  "
 >
   Buchen
 </button>

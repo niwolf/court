@@ -1,8 +1,23 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
-import { CourtOccupancyService } from '../../services/court-occupancy.service';
+import {
+  Court,
+  CourtOccupancyService,
+} from '../../services/court-occupancy.service';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
+
+const getObservable = (collection: AngularFirestoreCollection<Court>) => {
+  const subject = new BehaviorSubject<Court[]>([]);
+  collection.valueChanges({ idField: 'id' }).subscribe((court: Court[]) => {
+    subject.next(court);
+  });
+  return subject;
+};
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +25,8 @@ import { CourtOccupancyService } from '../../services/court-occupancy.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  court = getObservable(this.store.collection('courts')) as Observable<Court[]>;
+
   isMobile$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.XSmall)
     .pipe(
@@ -19,6 +36,7 @@ export class DashboardComponent {
 
   constructor(
     public courtOccupancyService: CourtOccupancyService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private store: AngularFirestore
   ) {}
 }
