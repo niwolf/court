@@ -6,89 +6,48 @@
   <mat-card-content>
     <div class="list">
       <mat-list role="list">
-        <mat-list-item role="listitem">
+        <mat-list-item role="listitem" *ngFor="let court of court | async">
           <div mat-line>
-            Platz 1:
-            {{
-              this.courtOccupancyService.court1IsOccupied === true
-                ? 'belegt'
-                : 'frei'
-            }}
+            {{ court.name }}
+            {{ court?.occupied === true ? 'belegt' : 'frei' }}
           </div>
           <mat-icon
             mat-list-icon
-            [style.color]="
-              this.courtOccupancyService.court1IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
+            [style.color]="court?.occupied === true ? 'red' : 'green'"
             >lens</mat-icon
           >
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item role="listitem">
-          <div mat-line>
-            Platz 2:
-            {{
-              this.courtOccupancyService.court2IsOccupied === true
-                ? 'belegt'
-                : 'frei'
-            }}
-          </div>
-          <mat-icon
-            mat-list-icon
-            [style.color]="
-              this.courtOccupancyService.court2IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
-            >lens</mat-icon
-          >
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item role="listitem">
-          <div mat-line>
-            Platz 3:
-            {{
-              this.courtOccupancyService.court3IsOccupied === true
-                ? 'belegt'
-                : 'frei'
-            }}
-          </div>
-          <mat-icon
-            mat-list-icon
-            [style.color]="
-              this.courtOccupancyService.court3IsOccupied === true
-                ? 'red'
-                : 'green'
-            "
-            >lens</mat-icon
-          >
+          <mat-divider *ngIf="court.name !== 'Platz 3'"></mat-divider>
         </mat-list-item>
       </mat-list>
     </div>
   </mat-card-content>
 </mat-card>
 
-<div class="centered">
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(1)">
-    Platz 1 freigeben
+<div class="centered" *ngFor="let court of court | async">
+  <button
+    mat-flat-button
+    (click)="
+      this.courtOccupancyService.toggleHandling(court.id.toString(), {
+        id: court.id,
+        name: court.name,
+        occupied: false
+      })
+    "
+  >
+    {{ court.name + ' freigeben' }}
   </button>
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt1(2)">
-    Platz 1 belegen</button
+  <button
+    mat-flat-button
+    (click)="
+      this.courtOccupancyService.toggleHandling(court.id.toString(), {
+        id: court.id,
+        name: court.name,
+        occupied: true
+      })
+    "
+  >
+    {{ court.name + ' belegen' }}</button
   ><br />
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(1)">
-    Platz 2 freigeben
-  </button>
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt2(2)">
-    Platz 2 belegen</button
-  ><br />
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(1)">
-    Platz 3 freigeben
-  </button>
-  <button mat-flat-button (click)="this.courtOccupancyService.toggleCourt3(2)">
-    Platz 3 belegen
-  </button>
 </div>
 
 <a

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CourtOccupancyService } from '../../services/court-occupancy.service';
+import {
+  Court,
+  CourtOccupancyService,
+  getObservable,
+} from '../../services/court-occupancy.service';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-new-booking',
@@ -8,13 +14,16 @@ import { CourtOccupancyService } from '../../services/court-occupancy.service';
   styleUrls: ['./new-booking.component.scss'],
 })
 export class NewBookingComponent {
+  court = getObservable(this.store.collection('courts')) as Observable<Court[]>;
+
   constructor(
     public _snackBar: MatSnackBar,
-    public courtOccupancyService: CourtOccupancyService
+    public courtOccupancyService: CourtOccupancyService,
+    private store: AngularFirestore
   ) {}
 
-  newBooking(court: string) {
-    this.courtOccupancyService.toggleHandling(court);
+  newBooking(court: string, courts: Court) {
+    this.courtOccupancyService.toggleHandling(court, courts);
     this._snackBar.open('Platz ' + court + ' wurde soeben gebucht!', 'Ok', {
       duration: 3000,
     });
