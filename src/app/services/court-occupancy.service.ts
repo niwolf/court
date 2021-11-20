@@ -1,25 +1,6 @@
 import { Injectable } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
-import { BehaviorSubject } from 'rxjs';
-
-export interface Court {
-  id: number;
-  name: string;
-  occupied: boolean;
-}
-
-export const getObservable = (
-  collection: AngularFirestoreCollection<Court>
-) => {
-  const subject = new BehaviorSubject<Court[]>([]);
-  collection.valueChanges({ idField: 'id' }).subscribe((court: Court[]) => {
-    subject.next(court);
-  });
-  return subject;
-};
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Court } from '../models/court';
 
 @Injectable({ providedIn: 'root' })
 export class CourtOccupancyService {

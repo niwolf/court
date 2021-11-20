@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  Court,
-  CourtOccupancyService,
-  getObservable,
-} from '../../services/court-occupancy.service';
+import { CourtOccupancyService } from '../../services/court-occupancy.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getData } from '../../utils/getData';
+import { Court } from '../../models/court';
 
 @Component({
   selector: 'app-new-booking',
@@ -14,7 +12,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./new-booking.component.scss'],
 })
 export class NewBookingComponent {
-  court = getObservable(this.store.collection('courts')) as Observable<Court[]>;
+  court = getData(this.store.collection('courts')) as Observable<Array<Court>>;
 
   constructor(
     public _snackBar: MatSnackBar,

@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
-import {
-  Court,
-  CourtOccupancyService,
-  getObservable,
-} from '../../services/court-occupancy.service';
+import { CourtOccupancyService } from '../../services/court-occupancy.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getData } from '../../utils/getData';
+import { Court } from '../../models/court';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +13,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  court = getObservable(this.store.collection('courts')) as Observable<Court[]>;
+  court = getData(this.store.collection('courts')) as Observable<Court[]>;
 
   isMobile$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.XSmall)
