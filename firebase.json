@@ -3,7 +3,10 @@
     "target": "court",
     "public": "dist/court",
     "ignore": [
-      "**/.*"
+      "firebase.json",
+      "firebase.conf.ts",
+      "**/.*",
+      "**/node_modules/**"
     ],
     "headers": [
       {
@@ -28,7 +31,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "index.html"
       }
     ]
   }
