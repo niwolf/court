@@ -1,7 +1,9 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Aktuelle Platzbelegung</mat-card-title>
-    <mat-card-subtitle>Es sind Plätze frei!</mat-card-subtitle>
+    <mat-card-subtitle>{{
+      alleBelegt ? 'Alle Plätze sind belegt' : 'Es sind Plätze frei!'
+    }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <div class="list">

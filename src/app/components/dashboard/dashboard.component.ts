@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
@@ -12,8 +12,10 @@ import { Court } from '../../models/court';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   court = getData(this.store.collection('courts')) as Observable<Court[]>;
+
+  alleBelegt: boolean | undefined;
 
   isMobile$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.XSmall)
@@ -27,4 +29,12 @@ export class DashboardComponent {
     private breakpointObserver: BreakpointObserver,
     private store: AngularFirestore
   ) {}
+
+  public ngOnInit(): void {
+    this.court.subscribe((court: Array<Court>) => {
+      court.every((c) =>
+        c.occupied ? (this.alleBelegt = true) : (this.alleBelegt = false)
+      );
+    });
+  }
 }
